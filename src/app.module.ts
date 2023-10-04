@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PessoalistComponent } from './app/pessoa/pessoalist/pessoalist.component';
 import { IndexComponent } from './app/layout/index/index.component';
-import { MenusuperiorComponent } from './app/layout/menusuperior/menusuperior.component';
+import { HeaderComponent } from './app/layout/header/header.component';
+import { LoginComponent } from './app/sistema/login/login.component';
+import { FooterComponent } from './app/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PessoalistComponent,
     IndexComponent,
-    MenusuperiorComponent
+    HeaderComponent,
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
