@@ -8,6 +8,8 @@ import { IndexComponent } from './app/layout/index/index.component';
 import { HeaderComponent } from './app/layout/header/header.component';
 import { LoginComponent } from './app/sistema/login/login.component';
 import { FooterComponent } from './app/layout/footer/footer.component';
+import { PessoadetailsComponent } from './app/pessoa/pessoadetails/pessoadetails.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { FooterComponent } from './app/layout/footer/footer.component';
     IndexComponent,
     HeaderComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    PessoadetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

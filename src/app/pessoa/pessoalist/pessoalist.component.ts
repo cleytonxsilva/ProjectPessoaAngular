@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Pessoa } from './pessoa';
+import { Pessoa } from '../pessoa';
 @Component({
   selector: 'app-pessoalist',
   templateUrl: './pessoalist.component.html',
