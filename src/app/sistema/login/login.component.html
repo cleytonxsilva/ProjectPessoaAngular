@@ -1,5 +1,13 @@
-<h2>login works!</h2>
-<input routerLink="/admin/pessoa" type="button" value="Listar Pessoas" />
-<input routerLink="/admin/carros" type="button" value="Listar Carros" />
-<input routerLink="/admin/livros" type="button" value="Listar Livros" />
-<app-footer></app-footer>
+<div class="container">
+    <div class="row">
+        <h2 class="col justify-content-center">login works!</h2>
+    </div>
+    <div class="row">
+        <div class="col justify-content-around">
+            <input routerLink="/admin/pessoa" type="button" value="Listar Pessoas" class="col-4 btn btn-danger" />
+            <input routerLink="/admin/carros" type="button" value="Listar Carros" class="col-4 btn btn-primary" />
+            <input routerLink="/admin/livros" type="button" value="Listar Livros" class="col-4 btn btn-warning" />
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

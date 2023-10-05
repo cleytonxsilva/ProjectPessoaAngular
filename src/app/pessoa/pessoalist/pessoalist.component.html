@@ -1,7 +1,7 @@
 <h1>pessoalist works!</h1>
-<input routerLink="" type="button" value="Menu principal">
-<input routerLink="/admin/pessoa/criar" type="button" value="Adicionar uma Pessoa na lista">
-<input routerLink="/admin/pessoa/editar" type="button" value="Editar uma Pessoa da lista">
+<input routerLink="" type="button" value="Menu principal" class="btn btn-danger">
+<input routerLink="/admin/pessoa/criar" type="button" value="Adicionar uma Pessoa na lista" class="btn btn-primary">
+<input routerLink="/admin/pessoa/editar" type="button" value="Editar uma Pessoa da lista" class="btn btn-warning">
 <div class="container">
     <br>
     <div>
@@ -9,11 +9,11 @@
         <table>
             <tr>
                 <th class="th-nome">Nome:</th>
-                <th>Idade:</th>
+                <th class="th-idade">Idade:</th>
             </tr>
             <tr *ngFor="let pessoa of lista">
                 <td class="td-nome">{{pessoa.nome}}</td>
-                <td>{{pessoa.idade}}</td>
+                <td class="th-idade">{{pessoa.idade}}</td>
             </tr>
         </table>
     </div>
@@ -22,7 +22,7 @@
         <table>
             <tr>
                 <th class="th-nome">Nome:</th>
-                <th>Idade:</th>
+                <th class="th-idade">Idade:</th>
             </tr>
             <tr *ngFor="let pessoa of lista">
                 <td class="td-nome" *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
