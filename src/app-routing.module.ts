@@ -4,6 +4,10 @@ import { LoginComponent } from './app/sistema/login/login.component';
 import { IndexComponent } from './app/layout/index/index.component';
 import { PessoalistComponent } from './app/pessoa/pessoalist/pessoalist.component';
 import { PessoadetailsComponent } from './app/pessoa/pessoadetails/pessoadetails.component';
+import { LivroslistComponent } from './app/livros/livroslist/livroslist.component';
+import { LivrosdetailsComponent } from './app/livros/livrosdetails/livrosdetails.component';
+import { CarroslistComponent } from './app/carros/carroslist/carroslist.component';
+import { CarrosdetailsComponent } from './app/carros/carrosdetails/carrosdetails.component';
 
 const routes: Routes = [
   {path:'', redirectTo: "login", pathMatch: 'full'},
@@ -12,6 +16,16 @@ const routes: Routes = [
     {path:'pessoa', component: PessoalistComponent},
     {path:'pessoa/criar', component: PessoadetailsComponent},
     {path:'pessoa/editar', component: PessoadetailsComponent},
+  ]},
+  {path:'admin', component: IndexComponent, children:[
+    {path:'livros', component: LivroslistComponent},
+    {path:'livros/criar', component: LivrosdetailsComponent},
+    {path:'livros/editar', component: LivrosdetailsComponent},
+  ]},
+  {path:'admin', component: IndexComponent, children:[
+    {path:'carros', component: CarroslistComponent},
+    {path:'carros/criar', component: CarrosdetailsComponent},
+    {path:'carros/editar', component: CarrosdetailsComponent},
   ]},
 ];
 
