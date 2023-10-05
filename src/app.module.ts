@@ -10,6 +10,12 @@ import { LoginComponent } from './app/sistema/login/login.component';
 import { FooterComponent } from './app/layout/footer/footer.component';
 import { PessoadetailsComponent } from './app/pessoa/pessoadetails/pessoadetails.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarrosComponent } from './app/carros/carros.component';
+import { LivrosComponent } from './app/livros/livros.component';
+import { CarrosdetailsComponent } from './app/carros/carrosdetails/carrosdetails.component';
+import { CarroslistComponent } from './app/carros/carroslist/carroslist.component';
+import { LivrosdetailsComponent } from './app/livros/livrosdetails/livrosdetails.component';
+import { LivroslistComponent } from './app/livros/livroslist/livroslist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     LoginComponent,
     FooterComponent,
-    PessoadetailsComponent
+    PessoadetailsComponent,
+    CarrosComponent,
+    LivrosComponent,
+    CarrosdetailsComponent,
+    CarroslistComponent,
+    LivrosdetailsComponent,
+    LivroslistComponent
   ],
   imports: [
     BrowserModule,
