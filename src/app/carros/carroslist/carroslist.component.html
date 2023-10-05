@@ -1,1 +1,33 @@
-<p>carroslist works!</p>
+<h1>carroslist works!</h1>
+<input routerLink="" type="button" value="Menu principal">
+<input routerLink="/admin/carros/criar" type="button" value="Adicionar um Carro na lista">
+<input routerLink="/admin/carros/editar" type="button" value="Editar um Carro da lista">
+<div class="container">
+    <br>
+    <div>
+        <h3>Lista de Carros:</h3>
+        <table>
+            <tr>
+                <th class="th-nome">Modelo:</th>
+                <th>Ano:</th>
+            </tr>
+            <tr *ngFor="let carro of lista">
+                <td class="td-modelo">{{carro.modelo}}</td>
+                <td>{{carro.ano}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h3>Carros fabricados acima de 1999:</h3>
+        <table>
+            <tr>
+                <th class="th-modelo">Modelo:</th>
+                <th>Ano:</th>
+            </tr>
+            <tr *ngFor="let carro of lista">
+                <td class="td-modelo" *ngIf="carro.ano > 1999">{{carro.modelo}}</td>
+                <td *ngIf="carro.ano > 1999">{{carro.ano}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
