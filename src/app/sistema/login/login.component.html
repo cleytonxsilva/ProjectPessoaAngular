@@ -3,6 +3,14 @@
         <h2 class="col justify-content-center">login works!</h2>
     </div>
     <div class="row">
+        <label for="">Login</label>
+        <input type="text" name="Login" [(ngModel)]="usuario.login">
+        <label for="">Senha</label>
+        <input type="password" name="Login" [(ngModel)]="usuario.senha">
+        <input type="button" value="Logar" (click)="logar()" class="btn btn-success" />
+
+    </div>
+    <div class="row">
         <div class="col justify-content-around">
             <input routerLink="/admin/pessoa" type="button" value="Listar Pessoas" class="col-4 btn btn-danger" />
             <input routerLink="/admin/carros" type="button" value="Listar Carros" class="col-4 btn btn-primary" />
