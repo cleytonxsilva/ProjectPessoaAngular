@@ -1,7 +1,7 @@
 <h1>livroslist works!</h1>
 <input routerLink="" type="button" value="Menu principal" class="btn btn-danger">
-<input routerLink="/admin/livros/criar" type="button" value="Adicionar um Livro na lista" class="btn btn-primary">
-<input routerLink="/admin/livros/editar" type="button" value="Editar um Livro da lista" class="btn btn-warning">
+<button class="btn btn-primary" (click)="abrirModal(content)">Adicionar um Livro na lista</button>
+<button class="btn btn-warning">Editar um Livro da lista</button>
 <div class="container">
     <br>
     <div>
@@ -18,20 +18,20 @@
                 <td>{{livro.ano}}</td>
             </tr>
         </table>
-    </div>
-    <div>
-        <h3>Livros publicados a partir de 1998:</h3>
-        <table>
-            <tr>
-                <th class="th-titulo">Título:</th>
-                <th class="th-editora">Editora</th>
-                <th class="th-ano">Ano:</th>
-            </tr>
-            <tr *ngFor="let livro of lista">
-                <td class="td-titulo" *ngIf="livro.ano > 1998">{{livro.titulo}}</td>
-                <td class="td-titulo" *ngIf="livro.ano > 1998">{{livro.editora}}</td>
-                <td *ngIf="livro.ano > 1998">{{livro.ano}}</td>
-            </tr>
-        </table>
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+
+                <app-livrosdetails (retorno)="addNaLista($event)"></app-livrosdetails>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+            </div>
+        </ng-template>
     </div>
 </div>

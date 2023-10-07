@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Livros } from '../livros';
 
 @Component({
@@ -9,40 +10,24 @@ import { Livros } from '../livros';
 export class LivroslistComponent {
   lista: Livros[] = [];
 
-  constructor(){
-    let livro1: Livros = new Livros();
-    livro1.titulo = "O Animal";
-    livro1.ano = 2001;
-    livro1.editora = "Saraiva"
-
-    let livro2: Livros = new Livros();
-    livro2.titulo = "O Carro";
-    livro2.ano = 1997;
-    livro2.editora = "Moderna"
+  modalService = inject(NgbModal);
 
 
-    let livro3: Livros = new Livros();
-    livro3.titulo = "A Mesa";
-    livro3.ano = 1998;
-    livro3.editora = "Pearson"
+  constructor() {
 
+    this.lista.push(new Livros("Vectra", 2001, "Saraiva"));
+    this.lista.push(new Livros("Gol", 2007, "Saraiva"));
+    this.lista.push(new Livros("Corsa", 2004, "Saraiva"));
+    this.lista.push(new Livros("Uno", 1994, "Saraiva"));
+    this.lista.push(new Livros("Clio", 2006, "Saraiva"));
+  }
 
-    let livro4: Livros = new Livros();
-    livro4.titulo = "A Cadeira";
-    livro4.ano = 2019;
-    livro4.editora = "Saraiva"
+  abrirModal(content: any){
+    this.modalService.open(content, {size: 'lg'});
+  }
 
-
-    let livro5: Livros = new Livros();
-    livro5.titulo = "O Ser Humano";
-    livro5.ano = 2007;
-    livro5.editora = "Epoca"
-
-
-    this.lista.push(livro1);
-    this.lista.push(livro2);
-    this.lista.push(livro3);
-    this.lista.push(livro4);
-    this.lista.push(livro5);
+  addNaLista(livros: Livros){
+    this.lista.push(livros);
+    this.modalService.dismissAll();
   }
 }

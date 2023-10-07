@@ -1,1 +1,13 @@
 <p>livrosdetails works!</p>
+
+<label for="">Título</label>
+<input type="text" [(ngModel)]="livros.titulo"/>
+
+<label for="">Editora:</label>
+<input type="string" [(ngModel)]="livros.editora"/>
+
+<label for="">Ano:</label>
+<input type="number" [(ngModel)]="livros.ano"/>
+
+
+<button (click)="salvar()">Salvar</button>
