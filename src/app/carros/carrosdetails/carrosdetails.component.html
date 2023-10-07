@@ -1,1 +1,9 @@
 <p>carrosdetails works!</p>
+
+<label for="">Modelo</label>
+<input type="text" [(ngModel)]="carros.modelo"/>
+
+<label for="">Ano:</label>:
+<input type="number" [(ngModel)]="carros.ano"/>
+
+<button (click)="salvar()">Salvar</button>

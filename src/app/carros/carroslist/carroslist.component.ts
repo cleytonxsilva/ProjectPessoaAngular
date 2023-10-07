@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Carros } from '../carros';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carroslist',
@@ -7,34 +8,28 @@ import { Carros } from '../carros';
   styleUrls: ['./carroslist.component.scss']
 })
 export class CarroslistComponent {
+  
   lista: Carros[] = [];
 
-  constructor(){
-    let carro1: Carros = new Carros();
-    carro1.modelo = "Vectra";
-    carro1.ano = 2001;
+  modalService = inject(NgbModal);
 
-    let carro2: Carros = new Carros();
-    carro2.modelo = "Corsa";
-    carro2.ano = 1997;
 
-    let carro3: Carros = new Carros();
-    carro3.modelo = "Gol";
-    carro3.ano = 1998;
+  constructor() {
 
-    let carro4: Carros = new Carros();
-    carro4.modelo = "Civic";
-    carro4.ano = 2019;
+    this.lista.push(new Carros("Vectra", 2001));
+    this.lista.push(new Carros("Gol", 2007));
+    this.lista.push(new Carros("Corsa", 2004));
+    this.lista.push(new Carros("Uno", 1994));
+    this.lista.push(new Carros("Clio", 2006));
+  }
 
-    let carro5: Carros = new Carros();
-    carro5.modelo = "Clio";
-    carro5.ano = 2007;
+  abrirModal(content: any){
+    this.modalService.open(content, {size: 'lg'});
+  }
 
-    this.lista.push(carro1);
-    this.lista.push(carro2);
-    this.lista.push(carro3);
-    this.lista.push(carro4);
-    this.lista.push(carro5);
+  addNaLista(pessoa: Carros){
+    this.lista.push(pessoa);
+    this.modalService.dismissAll();
   }
 
 }
