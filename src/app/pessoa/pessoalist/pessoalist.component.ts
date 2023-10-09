@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { Pessoa } from '../pessoa';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -27,6 +27,10 @@ export class PessoalistComponent {
 
   addNaLista(pessoa: Pessoa){
     this.lista.push(pessoa);
+    this.modalService.dismissAll();
+  }
+  excluir(index: number){
+    this.lista.splice(index, 1);
     this.modalService.dismissAll();
   }
 }

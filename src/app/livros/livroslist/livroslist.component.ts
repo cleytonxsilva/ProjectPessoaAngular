@@ -30,4 +30,9 @@ export class LivroslistComponent {
     this.lista.push(livros);
     this.modalService.dismissAll();
   }
+
+  excluir(index: number){
+    this.lista.splice(index, 1);
+    this.modalService.dismissAll();
+  }
 }

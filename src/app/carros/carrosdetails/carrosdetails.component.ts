@@ -25,4 +25,7 @@ export class CarrosdetailsComponent {
   salvar(){
     this.retorno.emit(this.carros);
   }
+  excluir(){
+    this.retorno.emit(this.carros);
+  }
 }

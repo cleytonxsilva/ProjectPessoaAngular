@@ -11,12 +11,12 @@
                 <th class="th-idade">Idade:</th>
                 <th class="th-opcoes">Opções:</th>
             </tr>
-            <tr *ngFor="let pessoa of lista">
+            <tr *ngFor="let pessoa of lista; let i = index">
                 <td class="td-nome">{{pessoa.nome}}</td>
                 <td class="th-idade">{{pessoa.idade}}</td>
                 <td class="th-opcoes">
                     <button class="btn btn-warning">Editar</button>
-                    <button class="btn btn-danger">Excluir</button>
+                    <button class="btn btn-danger" (click)="excluir(i)">Excluir</button>
                 </td>
             </tr>
         </table>

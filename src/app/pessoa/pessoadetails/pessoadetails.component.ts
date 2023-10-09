@@ -24,4 +24,7 @@ export class PessoadetailsComponent {
   salvar(){
     this.retorno.emit(this.pessoa);
   }
+  excluir(){
+    this.retorno.emit(this.pessoa);
+  }
 }

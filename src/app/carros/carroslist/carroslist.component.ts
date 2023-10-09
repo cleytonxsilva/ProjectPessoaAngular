@@ -31,5 +31,9 @@ export class CarroslistComponent {
     this.lista.push(pessoa);
     this.modalService.dismissAll();
   }
+  excluir(index: number){
+    this.lista.splice(index, 1);
+    this.modalService.dismissAll();
+  }
 
 }

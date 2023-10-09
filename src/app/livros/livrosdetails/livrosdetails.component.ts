@@ -25,4 +25,8 @@ export class LivrosdetailsComponent {
     this.retorno.emit(this.livros);
   }
 
+  excluir(){
+    this.retorno.emit(this.livros);
+  }
+
 }

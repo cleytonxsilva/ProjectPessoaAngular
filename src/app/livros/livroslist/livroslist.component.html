@@ -12,13 +12,13 @@
                 <th class="th-ano">Ano:</th>
                 <th class="th-opcoes">Opções:</th>
             </tr>
-            <tr *ngFor="let livro of lista">
+            <tr *ngFor="let livro of lista; let i = index">
                 <td class="td-titulo">{{livro.titulo}}</td>
                 <td class="th-editora">{{livro.editora}}</td>
                 <td>{{livro.ano}}</td>
                 <td class="th-opcoes">
                     <button class="btn btn-warning">Editar</button>
-                    <button class="btn btn-danger">Excluir</button>
+                    <button class="btn btn-danger" (click)="excluir(i)">Excluir</button>
                 </td>
             </tr>
         </table>
