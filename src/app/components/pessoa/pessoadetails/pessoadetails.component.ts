@@ -1,6 +1,6 @@
-import { Component, inject, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Pessoa } from '../pessoa';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Pessoa } from 'src/app/models/pessoa';
+import { PessoasService } from 'src/app/services/pessoas.service';
 
 @Component({
   selector: 'app-pessoadetails',
@@ -9,22 +9,42 @@ import { Pessoa } from '../pessoa';
 })
 export class PessoadetailsComponent {
 
-  roteador = inject(ActivatedRoute);
-  pessoa: Pessoa = new Pessoa("",0);
-
+  
+  @Input() pessoa: Pessoa = new Pessoa();
   @Output() retorno = new EventEmitter<Pessoa>();
 
+  pessoaService = inject(PessoasService);
+  isEdit = false; 
 
   constructor(){
-    let id = this.roteador.snapshot.paramMap.get('id');
-    console.log(id);
+    
+  }
+  ngOnInit() {
+    this.isEdit = this.pessoa.id > 0; 
   }
 
-
-  salvar(){
-    this.retorno.emit(this.pessoa);
-  }
-  excluir(){
-    this.retorno.emit(this.pessoa);
+  salvar() {
+    if (this.isEdit) {
+      // Modo de edição
+      this.pessoaService.update(this.pessoa).subscribe({
+        next: pessoa => {
+          this.retorno.emit(pessoa);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.pessoaService.save(this.pessoa).subscribe({
+        next: pessoa => {
+          this.retorno.emit(pessoa);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
   }
 }

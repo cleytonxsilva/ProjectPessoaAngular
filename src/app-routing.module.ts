@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './app/sistema/login/login.component';
-import { IndexComponent } from './app/layout/index/index.component';
-import { PessoalistComponent } from './app/pessoa/pessoalist/pessoalist.component';
-import { PessoadetailsComponent } from './app/pessoa/pessoadetails/pessoadetails.component';
-import { LivroslistComponent } from './app/livros/livroslist/livroslist.component';
-import { LivrosdetailsComponent } from './app/livros/livrosdetails/livrosdetails.component';
-import { CarroslistComponent } from './app/carros/carroslist/carroslist.component';
-import { CarrosdetailsComponent } from './app/carros/carrosdetails/carrosdetails.component';
+import { LoginComponent } from './app/components/sistema/login/login.component';
+import { IndexComponent } from './app/components/layout/index/index.component';
+import { PessoalistComponent } from './app/components/pessoa/pessoalist/pessoalist.component';
+import { PessoadetailsComponent } from './app/components/pessoa/pessoadetails/pessoadetails.component';
+import { LivroslistComponent } from './app/components/livros/livroslist/livroslist.component';
+import { LivrosdetailsComponent } from './app/components/livros/livrosdetails/livrosdetails.component';
+import { CarroslistComponent } from './app/components/carros/carroslist/carroslist.component';
+import { CarrosdetailsComponent } from './app/components/carros/carrosdetails/carrosdetails.component';
 
 const routes: Routes = [
   {path:'', redirectTo: "login", pathMatch: 'full'},

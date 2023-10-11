@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Livros } from '../livros';
+import { Livros } from 'src/app/models/livros';
 
 @Component({
   selector: 'app-livroslist',
