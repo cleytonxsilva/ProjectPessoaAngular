@@ -1,6 +1,6 @@
-import { Component, inject, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Livros } from 'src/app/models/livros';
+import { LivrosService } from 'src/app/services/livros.service';
 
 @Component({
   selector: 'app-livrosdetails',
@@ -9,24 +9,42 @@ import { Livros } from 'src/app/models/livros';
 })
 export class LivrosdetailsComponent {
 
-  roteador = inject(ActivatedRoute);
-  livros: Livros = new Livros("",0,"");
-
+  
+  @Input() livros: Livros = new Livros();
   @Output() retorno = new EventEmitter<Livros>();
 
+  livrosService = inject(LivrosService);
+  isEdit = false; 
 
   constructor(){
-    let id = this.roteador.snapshot.paramMap.get('id');
-    console.log(id);
+    
+  }
+  ngOnInit() {
+    this.isEdit = this.livros.id > 0; 
   }
 
-
-  salvar(){
-    this.retorno.emit(this.livros);
+  salvar() {
+    if (this.isEdit) {
+      // Modo de edição
+      this.livrosService.update(this.livros).subscribe({
+        next: livros => {
+          this.retorno.emit(livros);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.livrosService.save(this.livros).subscribe({
+        next: livros => {
+          this.retorno.emit(livros);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
   }
-
-  excluir(){
-    this.retorno.emit(this.livros);
-  }
-
 }

@@ -1,11 +1,6 @@
 export class Livros {
+    id!: number;
     titulo!: string;
     ano!: number;
     editora!: string;
-
-    constructor(titulo: string, ano: number, editora: string){
-        this.titulo = titulo;
-        this.ano = ano;
-        this.editora = editora;
-    }
 }

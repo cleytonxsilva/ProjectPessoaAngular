@@ -1,22 +1,24 @@
 <h1>carroslist works!</h1>
 <input routerLink="" type="button" value="Menu principal" class="btn btn-danger">
-<button class="btn btn-primary" (click)="abrirModal(content)">Adicionar um Carro na lista</button>
+<button class="btn btn-primary" (click)="adicionar(content)">Adicionar um Carro na lista</button>
 <div class="container">
     <br>
     <div>
         <h3>Lista de Carros:</h3>
         <table>
             <tr>
+                <th class="th-id">#ID:</th>
                 <th class="th-modelo">Modelo:</th>
                 <th class="th-ano">Ano:</th>
                 <th class="th-opcoes">Opções:</th>
             </tr>
             <tr *ngFor="let carro of lista; let i = index">
+                <td class="td_id">{{carro.id}}</td>
                 <td class="td-modelo">{{carro.modelo}}</td>
                 <td>{{carro.ano}}</td>
                 <td class="th-opcoes">
-                    <button class="btn btn-warning">Editar</button>
-                    <button class="btn btn-danger" (click)="excluir(i)">Excluir</button>
+                    <button class="btn btn-primary" (click)="editar(content, carro, i)">Editar</button>
+                    <button class="btn btn-danger" (click)="delete(carro.id)">Excluir</button>
                 </td>
             </tr>
         </table>
@@ -28,7 +30,7 @@
             </div>
             <div class="modal-body">
 
-                <app-carrosdetails (retorno)="addNaLista($event)"></app-carrosdetails>
+                <app-carrosdetails [carros]="carroSelecionadaParaEdicao" (retorno)="addOuEditarCarros($event)" ></app-carrosdetails>
 
             </div>
             <div class="modal-footer">

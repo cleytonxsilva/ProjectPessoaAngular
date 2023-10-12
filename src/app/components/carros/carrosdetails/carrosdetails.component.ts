@@ -1,7 +1,6 @@
-import { Component, inject, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Carros } from 'src/app/models/carros';
-
+import { CarrosService } from 'src/app/services/carros.service';
 
 @Component({
   selector: 'app-carrosdetails',
@@ -10,22 +9,42 @@ import { Carros } from 'src/app/models/carros';
 })
 export class CarrosdetailsComponent {
 
-  roteador = inject(ActivatedRoute);
-  carros: Carros = new Carros("",0);
-
+  
+  @Input() carros: Carros = new Carros();
   @Output() retorno = new EventEmitter<Carros>();
 
+  carrosService = inject(CarrosService);
+  isEdit = false; 
 
   constructor(){
-    let id = this.roteador.snapshot.paramMap.get('id');
-    console.log(id);
+    
+  }
+  ngOnInit() {
+    this.isEdit = this.carros.id > 0; 
   }
 
-
-  salvar(){
-    this.retorno.emit(this.carros);
-  }
-  excluir(){
-    this.retorno.emit(this.carros);
+  salvar() {
+    if (this.isEdit) {
+      // Modo de edição
+      this.carrosService.update(this.carros).subscribe({
+        next: carros => {
+          this.retorno.emit(carros);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.carrosService.save(this.carros).subscribe({
+        next: carros => {
+          this.retorno.emit(carros);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
   }
 }

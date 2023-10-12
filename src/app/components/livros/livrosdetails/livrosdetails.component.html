@@ -1,13 +1,16 @@
-<p>livrosdetails works!</p>
-
-<label for="">Título</label>
-<input type="text" [(ngModel)]="livros.titulo"/>
-
-<label for="">Editora:</label>
-<input type="string" [(ngModel)]="livros.editora"/>
-
-<label for="">Ano:</label>
-<input type="number" [(ngModel)]="livros.ano"/>
-
-
-<button (click)="salvar()">Salvar</button>
+<form (ngSubmit)="salvar()">
+    <div class="cadastro">
+        <h2>Título:</h2>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp" [(ngModel)]="livros.titulo">
+      
+        <h2>Editora:</h2>
+        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="livros.editora">
+      
+        <h2>Ano:</h2>
+        <input type="number" class="form-control" name="exampleInputText1" aria-describedby="emailHelp" [(ngModel)]="livros.ano">
+      <br><br>
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+    </form>

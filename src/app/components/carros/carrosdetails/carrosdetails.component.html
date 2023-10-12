@@ -1,9 +1,13 @@
-<p>carrosdetails works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="cadastro">
+        <h2>Modelo:</h2>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp" [(ngModel)]="carros.modelo">
 
-<label for="">Modelo</label>
-<input type="text" [(ngModel)]="carros.modelo"/>
-
-<label for="">Ano:</label>:
-<input type="number" [(ngModel)]="carros.ano"/>
-
-<button (click)="salvar()">Salvar</button>
+        <h2>Ano:</h2>
+        <input type="number" class="form-control" name="exampleInputText1" aria-describedby="emailHelp" [(ngModel)]="carros.ano">
+      <br><br>
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+    </form>
